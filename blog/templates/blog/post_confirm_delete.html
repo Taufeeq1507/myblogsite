@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}Delete Post Confirmation{% endblock %}
+
+{% block head %} {% endblock %}
+
+{% block content %}
+<div id="post-delete-confirmation">
+    <h2>Are you sure you want to delete this post?</h2>
+    <p><strong>{{ post.title }}</strong></p>
+    <p>By {{ post.author }} on {{ post.date_created }}</p>
+
+    <form method="post" action="{% url 'post-delete' post.pk %}">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+        <a href="{% url 'post-detail' post.pk %}">Cancel</a>
+    </form>
+{% endblock %}

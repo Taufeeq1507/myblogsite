@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static "blog/css/login.css" %}">
+{% endblock head %}
+{% block content %}
+<div id='content'>
+<form method="POST">
+    {% csrf_token %}
+    <fieldset class='form-group'>
+        <legend>Login</legend>
+        {{form.as_p}}
+    </fieldset>
+    <div class='form-group'>
+        <button type="submit">Login</button>
+    </div>
+</form>
+<div>
+    <small>Need an Account? <a href="{% url "register" %}">Sign Up Now</a></small>
+</div>
+</div>
+{% endblock content %}

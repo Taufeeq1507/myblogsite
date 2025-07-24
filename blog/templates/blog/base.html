@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsightfulInsights-{%block title%}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "blog/css/header.css" %}">
+    {% block head %}{% endblock%} 
+</head>
+<body>
+    <header>
+        <div id="logo-title">
+          <img id="logo" src="{%static 'blog/images/logo.png'%}" alt="Logo">
+          <h1>Insightful Insights</h1>  
+        </div>
+        <nav>
+            <ul id="nav-links">
+                <li class="flex-item"><a href="{%url 'home'%}">Home</a></li>
+                {%if user.is_authenticated%}
+                <li class="flex-item"><a href="{% url 'post-create' %}">Create post</a></li>
+                {% comment %} <a href="{%url 'profile'%}">Profile</a> {% endcomment %}
+                <li class="flex-item"><form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form></li>
+                {% else %}
+                <li class="flex-item"><a href="{% url "login" %}">Login</a></li>
+                <li class="flex-item"><a href="{% url "register" %}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {%block content%}
+        {% endblock %}
+    </main>
+    <footer><p>copyright 2021</p></footer>
+</body>
+</html>

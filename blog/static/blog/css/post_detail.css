@@ -1,0 +1,59 @@
+
+/* Ensure the main content block is correctly placed and styled */
+#post-detail {
+    grid-column: 1 / 2; /* Explicitly place in the first column of 'main' grid */
+    display: flex;
+    flex-direction: column;  
+    padding: 20px;
+    background-color: rgb(202, 223, 230);
+    border-radius: 8px;
+}
+
+/* Specific styles for elements within #post-detail */
+#post-content {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+#post-detail-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+/* Style for the sidebar container */
+#post-detail-sidebar {
+    grid-column: 2 / 3; /* Explicitly place in the second column of 'main' grid */
+    background-color: #e0e0e0; /* Add this to clearly see its boundaries */
+    padding: 15px; /* Add some padding inside the sidebar */
+    border-radius: 8px; /* Optional: for rounded corners */
+    /* margin-top: 0; Remove specific margin-top to allow grid alignment */
+    /* This ensures content doesn't force column to expand unnecessarily */
+    align-self: start;
+    min-width: 0; /* Allows the column to shrink below content's intrinsic width if needed */
+    /* overflow: hidden; Hides content that still overflows, but vertical stack is preferred */
+    /* Align the sidebar to the top of its grid cell */
+    /* align-self: start; This is crucial for vertical alignment with #post-detail */
+    box-sizing: border-box;
+}
+
+/* Style the navigation links within the sidebar */
+#post-detail-sidebar nav {
+    display: flex;            /* Make the <nav> a flex container */
+    flex-direction: column;   /* Arrange its children (the <a> links) vertically */
+    gap: 10px;                /* Add space between links */
+    /* padding: 0; */          /* Padding is handled by the parent sidebar div */
+    align-items: flex-start;  /* Align items to the start (left) of the cross axis */
+    width: 100%;           /* Ensure the nav takes full width of the sidebar */
+}
+
+/* Style the individual links */
+.sidebar-link {
+    text-decoration: none;
+    color: blue; /* Or any color you prefer */
+    font-weight: bold;
+    white-space: nowrap; /* Prevent breaking lines if the column is wide enough */
+}

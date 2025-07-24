@@ -1,0 +1,53 @@
+{% extends "blog/base.html" %} 
+{% load static %} 
+{%block title%}HomePage{%endblock title%} 
+{% block head %} <link rel="stylesheet" href="{% static "blog/css/home.css" %}"> {% endblock head %} 
+{% block content %}
+<div id="left-part">
+  <section>
+    <div id="editor-choice">
+      <h2>Editor's Choice</h2>
+      <ul id="editor-choice-post">
+        {% if editorschoice %}
+        <li>
+          <img
+            id="editorschoiceimg"
+            src="{{editorschoice.image.url}}"
+            alt="Photo of Aurangzeb"
+          />
+        </li>
+        <li>
+          <a href="{% url "post-detail" editorschoice.id %}"><h3>{{editorschoice.title}}</h3></a>
+          <p>
+            Published by {{editorschoice.author}} on
+            {{editorschoice.date_created}}
+          </p>
+
+          <p>Summary:{{editorschoice.summary}}</p>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </section>
+  <section>
+    <h2>Recent Posts</h2>
+    <div id="post-card">
+      {% for post in posts %}
+      <div class="post-card-item">
+        <ul>
+          <li>
+            <img id="post-card-item-img" src="{{post.image.url}}" alt="Post Image"/>
+          </li>
+          <li>
+            <a id="post-link" href="{% url "post-detail" post.id%}" ><h3>{{post.title}}</h3></a>
+            <p>Published by {{post.author}} on {{post.date_created}}</p>
+            <p>Summary:{{post.summary|truncatechars:200}}...</p>
+          </li>
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+<div id="right-part"></div>
+{% endblock content %}

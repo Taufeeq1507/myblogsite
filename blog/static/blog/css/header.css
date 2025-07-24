@@ -1,0 +1,79 @@
+body, html{
+    height: 100%;
+    width: 100%;
+}
+main{
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+    box-sizing: border-box;
+}
+footer{
+    background-color: rgb(51, 98, 145);
+    margin-top: 10px;
+}
+
+body{
+    display: grid;
+    /* width: 100%; */
+    grid-template-rows: auto 1fr auto;
+    background-color: lightblue;
+    min-height: 100vh;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    align-items: center;
+    background-color: rgb(252, 253, 254);
+    padding: 10px 20px;
+    margin: 0;
+}
+#logo-title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+#logo{
+    width: 7%;
+    height: auto;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+#nav-links{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+    list-style: none;
+}
+.flex-item{
+    white-space: nowrap;
+}
+#content{
+    max-width: 600px;
+    width: 90%;
+    margin: 100px auto;
+
+}
+#nav-links li a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+#nav-links li button[type="submit"]{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}

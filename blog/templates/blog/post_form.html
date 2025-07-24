@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+
+{% block title %}postform{% endblock title %}
+
+
+{% block content %}
+<div id='content'>
+    <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend>Create a New Post</legend>
+            {{ form.as_p }}
+        </fieldset>
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

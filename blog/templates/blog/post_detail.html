@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'blog/css/post_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id='post-detail'>
+        <h2>{{post.title}}</h2>  
+        <p>By {{post.author}} on {{post.date_created}}</p>
+        <img id="post-detail-img" src="{{post.image.url}}" alt="Post Image">
+        <div id="post-content">
+            <p >{{post.content|linebreaks}}</p>
+        </div>
+    </div>
+    <div id="post-detail-sidebar">
+        <nav>
+            <a class="sidebar-link" href=" {% url "post-delete" post.id%} ">Delete</a>
+            <a class="sidebar-link" href=" {% url "post-update" post.id%} ">Edit</a>
+        </nav>
+    </div>
+
+{% endblock %}

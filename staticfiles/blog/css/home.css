@@ -1,0 +1,71 @@
+#editorschoiceimg{
+    width: 100%;
+    height: 100%;
+}
+#editor-choice-post{
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: center;
+    margin: 20px;
+    gap: 10px;
+    list-style: none;
+    background-color: rgb(201, 201, 210);
+    padding: 5px;
+    border-radius: 8px;
+    /* max-width: 600px; */
+}
+#editor-choice h2{
+    text-align: center;
+    margin: 20px;
+}
+#left-part{
+    display: grid;
+    grid-template-rows: 4fr 6fr;
+    gap: 10px;
+    grid-column: 1 / 2; /* Explicitly place in the first column of 'main' grid */
+}
+
+#post-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 5px;
+    margin: 20px;
+    border-radius: 8px;
+}
+.post-card-item ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 9px;
+    /* height: 100%; */
+}
+#post-card-item-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.post-card-item{
+    background-color: rgb(188, 205, 205);
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+#left-part section:nth-child(2) h2{
+    text-align: center;
+    margin: 20px;
+}
+section{
+    background-color: rgb(202, 223, 230);
+    border-radius: 8px;
+    margin: 10px 0 0 10px;
+}
+#editor-choice-post li:nth-child(2) a{
+    text-decoration: none;
+    color: inherit;
+}
+#post-link {
+    text-decoration: none;
+    color: inherit;
+}
